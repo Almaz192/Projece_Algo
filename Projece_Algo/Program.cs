@@ -12,6 +12,7 @@ class Node
         Next = null;
     }
 }
+
 class LinkedList
 {
     private Node head;
@@ -98,6 +99,7 @@ class LinkedList
         return head == null;
     }
 }
+
 class Note
 {
     public string Title { get; set; }
@@ -151,7 +153,7 @@ class Program
                 case 2:
                     if (notes.IsEmpty())
                     {
-                        Console.WriteLine("There is no notes.");
+                        Console.WriteLine("There are no notes.");
                     }
                     else
                     {
