@@ -1,11 +1,15 @@
 using System;
 using System.Text;
 
+// single node in the LinkedList
 class Node
 {
+    // It stores the Note object
     public Note Data { get; set; }
+    // It stores the reference to the next note
     public Node Next { get; set; }
 
+    // Constructor that initializes the new instance of the Node with the new data
     public Node(Note data)
     {
         Data = data;
@@ -13,35 +17,48 @@ class Node
     }
 }
 
+// Realization of LinkedList
 class LinkedList
 {
+    // Head of the LinkedList
     private Node head;
 
+    // Constructor with an empty LinkedList
     public LinkedList()
     {
+        // head is null because the new list doesn't have any connection with others
         head = null;
     }
 
+    //Method of Adding the new Linked List
     public void Add(Note data)
     {
+        //Creating a new Node with the provided data
         Node newNode = new Node(data);
+        //Setting empty list at the head of the LinkedList
         if (head == null)
         {
             head = newNode;
         }
         else
         {
+            // Initializing the current position
             Node current = head;
+            // It will run until it comes to the end of the list
             while (current.Next != null)
             {
+                // Moving to the last Node
                 current = current.Next;
             }
+            // it points to the the end of the list
             current.Next = newNode;
         }
     }
 
+    // Realization of Removing method. It deletes the note according to its Title.
     public bool Remove(string title)
     {
+        // if the list is null - it will return false
         if (head == null)
         {
             return false;
