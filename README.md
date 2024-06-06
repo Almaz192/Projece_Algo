@@ -5,13 +5,10 @@
 - SEST-2-22
 ## Theme
 - Realization of console Blocknote using LinkedList in C#
-  
-This is console app by typing 1,2,3,4,5 you can Add,Edit,Delete,Display,Exit your Note, also you can choose any note that you want to see.
-Teamwork Evaluation:
-
+## TeamWork Evaluation
 Azim's work:
 Offered an idea.
-Made a LinkedList implementation in code.
+Made a LinkedList implementation in code. Also design the READ.me file
 
 Almaz's work:
 Implemented class Program.
