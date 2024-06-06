@@ -64,70 +64,95 @@ class LinkedList
             return false;
         }
 
+        //It chechs if the Title matches with the Title that we want to delete
         if (head.Data.Title.Equals(title))
         {
+            // head moves to the next, so our note will be deleted
             head = head.Next;
             return true;
         }
 
+        // Temporary variable is created as a head
         Node current = head;
+        // The cycle will work until it finds the note with the Title we are looking for
         while (current.Next != null && !current.Next.Data.Title.Equals(title))
         {
+            // We deleted the title by moving current to the next
             current = current.Next;
         }
 
+        // If the title isn't found, it will return false
         if (current.Next == null)
         {
             return false;
         }
 
+        // We are pointing current.Next to the next note, so that we have deleted the previous one
         current.Next = current.Next.Next;
+        // Returns true, because we have deleted the note
         return true;
     }
 
+    // New method that takes title and new Content
     public bool Edit(string title, string newContent)
     {
+        // Variable that points to the first note in the list
         Node current = head;
+        // It will work until we rach the end of the list
         while (current != null)
         {
+            // We are checking if the current title matches with the title we want to edit
             if (current.Data.Title.Equals(title))
             {
+                // If the Title matches, we are setting the new content
                 current.Data.Content = newContent;
                 return true;
             }
+            // We are going to the next note int the list
             current = current.Next;
         }
+        // If it didn't find the note with the Title, it returns false
         return false;
     }
 
+    // Method that displays all the notes in the list
     public void Display()
     {
+        // It point to the first note of the list
         Node current = head;
+        // It will help with numerating all the notes
         int count = 1;
+        // It works until it reaches the end
         while (current != null)
         {
+            // It writes the notes by numerating
             Console.WriteLine($"{count++}) {current.Data}");
+            // Moving to the next note
             current = current.Next;
         }
     }
 
+    // It checks if the list is empty
     public bool IsEmpty()
     {
         return head == null;
     }
 }
 
+// class Note that takes Title and Content
 class Note
 {
     public string Title { get; set; }
     public string Content { get; set; }
 
+    // Constructor that takes two parameters
     public Note(string title, string content)
     {
         Title = title;
         Content = content;
     }
 
+    // Redefining ToString. It returns string representation of the object Note
     public override string ToString()
     {
         return $"Title: {Title}, Content: {Content}";
